@@ -1,0 +1,23 @@
+kind: project
+metadata:
+  name: git-proj-yaron
+spec:
+  description: my new project
+  functions:
+  - name: myjob
+    kind: job
+    image: mlrun/mlrun
+    handler: job_func.job_handler
+    with_repo: true
+  - name: nuclio
+    kind: nuclio
+    image: mlrun/mlrun
+    handler: nuclio_func:nuclio_handler
+    with_repo: true
+  - url: serving.yaml
+    name: serving
+    with_repo: true
+  workflows: []
+  artifacts: []
+  source: ''
+  desired_state: online
